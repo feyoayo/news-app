@@ -36,6 +36,7 @@ function App() {
     const newsService = new Service();
     const [news, setNews] = useState([]);
     const [lang, setLang] = useState('ua')
+
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         newsService.topHeadLines(lang).then(res => setNews(res))
