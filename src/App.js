@@ -1,20 +1,11 @@
 import Service from "./service/newsService";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import NewsBody from "./components/NewsBody";
 import Spinner from "./components/Spinner/Spinner";
 import styled from "styled-components";
+import SearchForm from "./components/SearchForm";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.39);
-`;
 
 const NBody = styled.div`
   margin: 0 auto;
@@ -22,51 +13,34 @@ const NBody = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const SelectLanguage = styled.select`
-  margin-right: 15px;
-  height: 30px;
-  border: none;
-  border-radius: 10px;
-  background: black;
-  color: white;
-`;
 
 function App() {
-  const newsService = new Service();
-  const [news, setNews] = useState([]);
-  const [lang, setLang] = useState("ua");
+    const newsService = new Service();
+    const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        getNews();
+    }, []);
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getNews();
-  }, [lang]);
 
-  const getNews = () => {
-    return newsService
-      .topHeadLines(lang)
-      .then((res) => setNews(res))
-      .then(() => {
-        setLoading(false);
-      });
-  };
+    const getNews = (searchValue, country, category) => {
+        if (!searchValue) {
+            return newsService.topHeadLines(country, category).then(response => setNews(response)).finally(() => setLoading(false))
+        }
 
-  return (
-    <NBody>
-      <Navigation>
-        <h1 style={{ marginLeft: "15px" }}>{lang}</h1>
-        <SelectLanguage
-          onChange={(event) => {
-            setLang(event.target.value);
-          }}
-        >
-          <option value="ua">Українські новини</option>
-          <option value="us">Новини зі Сполученних Штатів</option>
-        </SelectLanguage>
-      </Navigation>
+        return newsService.everything(searchValue, country).then(response => setNews(response)).finally(() => setLoading(false))
+    };
 
-      {loading ? <Spinner /> : <NewsBody news={news} />}
-    </NBody>
-  );
+
+    return (
+        <NBody>
+            <SearchForm
+                searchParams={getNews}
+                news={news}
+            />
+            {loading ? <Spinner/> : <NewsBody news={news}/>}
+        </NBody>
+    );
 }
 
 export default App;

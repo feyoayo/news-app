@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Spinner from "./Spinner/Spinner";
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import styled from "styled-components";
 
 const NewsCard = styled.div`
@@ -7,8 +7,9 @@ const NewsCard = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 70%;
-  height: auto;
+  width: 400px;
+  height: 550px;
+  overflow-y: scroll;
   border: black 1px solid;
   border-radius: 10px;
   background: black;
@@ -16,31 +17,41 @@ const NewsCard = styled.div`
 `;
 
 const NewsImg = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 220px;
 `;
 
 const NewsTitle = styled.h3`
+  text-align: center;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 1.5rem;
 `;
 
 const NewsDescription = styled.h4`
   text-align: center;
+  font-size: 1rem;
 `;
 
+//Компонент
 const NewsTemplate = ({ item }) => {
+
   const [content, showContent] = useState(false);
 
-  const showImage = () => {
-    return showContent(!content);
-  };
+  const loadImg = () => {
+      //Картинка заглушка
+      return (
+          <img src="https://dummyimage.com/340x220/242124/3d3d4d&text=+" alt=""/>
+      )
+    }
+
+
   const OtherContent = () => {
     //Компонент с внутренностями, которые под спойлером
     return (
       <>
         <a href={item.url}>
           <NewsImg
+            onLoad={loadImg}
             src={item.urlToImage}
             title={"Натисніть щоб перейти за посиланням"}
             alt="Зоображення новини"
@@ -51,16 +62,24 @@ const NewsTemplate = ({ item }) => {
       </>
     );
   };
-
-  const Template = () => {
     return (
-      <NewsCard>
-        <NewsTitle onClick={showImage}>{item.title}</NewsTitle>
-        <div className={"other-content"}>{content && <OtherContent />}</div>
-      </NewsCard>
+        <Bootstr news={item}/>
     );
-  };
-  return <Template />;
 };
 
 export default NewsTemplate;
+
+
+
+const Bootstr = ({news}) => {
+    return (
+        <div className='card mt-3 col-md-6 col-sm-12 col-lg-4'>
+            <img src={news.urlToImage || 'https://dummyimage.com/340x220/242124/3d3d4d&text=+'} className="card-img-top"/>
+                <div className="card-body">
+                    <h5 className="card-title">{news.title}</h5>
+                    <p className="card-text">{news.description}</p>
+                </div>
+                <div className="card-footer bg-transparent">{news.author}</div>
+        </div>
+    )
+}

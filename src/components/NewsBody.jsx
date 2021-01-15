@@ -3,12 +3,13 @@ import NewsTemplate from "./NewsTemplate";
 import styled from 'styled-components'
 
 const NewsDesk = styled.div`
-  
-margin: 0 auto;
+  margin: 0 auto;
   margin-top: 100px;
   width: 95%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `
 
 const NewsBody = ({news}) => {

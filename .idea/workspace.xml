@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d91b8f7-a53a-4b51-92ea-e64b7859825f" name="Default Changelist" comment="first commit/v1/forks-fine">
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsBody.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsBody.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsTemplate.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsTemplate.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/newsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/newsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -69,6 +78,7 @@
       <updated>1610382250537</updated>
       <workItem from="1610382254432" duration="620000" />
       <workItem from="1610382981421" duration="15504000" />
+      <workItem from="1610727025659" duration="15074000" />
     </task>
     <task id="LOCAL-00001" summary="first commit/v1/forks-fine">
       <created>1610406258049</created>
